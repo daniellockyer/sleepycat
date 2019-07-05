@@ -3,18 +3,11 @@
 [![Build Status](https://travis-ci.com/daniellockyer/sleepycat.svg?branch=master)](https://travis-ci.com/daniellockyer/sleepycat)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-Takes in a file and outputs the contents at a given number of lines per second (LPS).
-
-`sleepycat` takes in data from `stdin` and outputs on `stdout`.
+`sleepycat` takes in data from `stdin` and outputs on `stdout` at a given number of lines per second (LPS).
 
 ## Why
 
 I was writing a program to parse a log file and draw graphs in real-time. I needed a way to repeatedly test it without generating log files from the source application. `sleepycat` allows you to take a file and output the contents at a configurable number of LPS.
-
-## Roadmap
-
-* [ ] Add flag to select target LPS
-* [ ] Add in the ability to make it vary slightly
 
 ## Accuracy
 
