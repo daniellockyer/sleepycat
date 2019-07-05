@@ -14,7 +14,7 @@ I was writing a program to parse a log file and draw graphs in real-time. I need
 You have several ways to get `sleepycat`:
 
 1. Download from [crates.io](https://crates.io/crates/sleepycat): `cargo install sleepycat`
-2. \*Coming Soon\* Download a prebuilt binary from the releases page.
+2. \*Coming Soon\* Download a prebuilt binary from the [releases page](https://github.com/daniellockyer/sleepycat/releases).
 3. Build it yourself.
     1. Clone this repo: `git clone https://github.com/daniellockyer/sleepycat`
     2. Build the binary in release mode: `cargo build --release`
