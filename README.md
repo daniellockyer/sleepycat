@@ -7,7 +7,7 @@
 
 ## Why
 
-I was writing a program to parse a log file and draw graphs in real-time. I needed a way to repeatedly test it without generating log files from the source application.
+I was writing a program to parse a log file and draw graphs in real-time. I needed a way to repeatedly test it without generating log files from the source application. `sleepycat` was born so I could reuse the same log file and pipe it into my application at a customizable rate.
 
 Sure, you could do it in Bash with some clever scripting, but I wanted the ability to add in some custom patterns at some point.
 
