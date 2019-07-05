@@ -9,6 +9,8 @@
 
 I was writing a program to parse a log file and draw graphs in real-time. I needed a way to repeatedly test it without generating log files from the source application.
 
+Sure, you could do it in Bash with some clever scripting, but I wanted the ability to add in some custom patterns at some point.
+
 ## Installation
 
 You have several ways to get `sleepycat`:
