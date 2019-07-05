@@ -7,7 +7,7 @@
 
 ## Why
 
-I was writing a program to parse a log file and draw graphs in real-time. I needed a way to repeatedly test it without generating log files from the source application. `sleepycat` allows you to take a file and output the contents at a configurable number of LPS.
+I was writing a program to parse a log file and draw graphs in real-time. I needed a way to repeatedly test it without generating log files from the source application.
 
 ## Accuracy
 
