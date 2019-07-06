@@ -28,10 +28,7 @@ fn main() -> Result<(), std::io::Error> {
     let lines_per_second = value_t!(matches, "LPS", u64).unwrap_or(10);
     let gap_duration = Duration::from_nanos(1_000_000_000 / lines_per_second);
     let mut line = String::new();
-
-    let mut collected = false;
-    let timer = SystemTime::now();
-    let mut gap_diff = Duration::new(0, 0);
+    let mut timer = SystemTime::now();
 
     while let Ok(n_bytes) = stdin.read_line(&mut line) {
         if n_bytes == 0 {
@@ -41,12 +38,10 @@ fn main() -> Result<(), std::io::Error> {
         write!(stdout, "{}", line)?;
         line.clear();
 
-        if !collected {
-            gap_diff = timer.elapsed().unwrap();
-            collected = true;
-        }
+        let gap_diff = timer.elapsed().unwrap();
 
         thread::sleep(gap_duration - gap_diff);
+        timer = SystemTime::now();
     }
 
     Ok(())
