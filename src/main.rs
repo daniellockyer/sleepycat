@@ -1,8 +1,9 @@
 #[macro_use]
 extern crate clap;
 
+use std::thread;
 use std::io::{self, BufRead, Write};
-use std::{thread, time};
+use std::time::{Duration, SystemTime};
 
 use clap::{App, Arg};
 
@@ -25,8 +26,12 @@ fn main() -> Result<(), std::io::Error> {
     let mut stdout = stdout.lock();
 
     let lines_per_second = value_t!(matches, "LPS", u64).unwrap_or(10);
-    let gap_millis = time::Duration::from_millis(1000 / lines_per_second);
+    let gap_duration = Duration::from_nanos(1_000_000_000 / lines_per_second);
     let mut line = String::new();
+
+    let mut collected = false;
+    let timer = SystemTime::now();
+    let mut gap_diff = Duration::new(0, 0);
 
     while let Ok(n_bytes) = stdin.read_line(&mut line) {
         if n_bytes == 0 {
@@ -35,7 +40,13 @@ fn main() -> Result<(), std::io::Error> {
 
         write!(stdout, "{}", line)?;
         line.clear();
-        thread::sleep(gap_millis);
+
+        if !collected {
+            gap_diff = timer.elapsed().unwrap();
+            collected = true;
+        }
+
+        thread::sleep(gap_duration - gap_diff);
     }
 
     Ok(())

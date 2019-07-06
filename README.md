@@ -33,5 +33,5 @@ cargo run --release < access.log | pv --line-mode --rate > /dev/null
 ```
 
 * For a target of 10 LPS, it reaches 9.99.
-* For a target of 100 LPS, it reaches 98.1.
-* For a target of 500 LPS, it reaches 460.
+* For a target of 100 LPS, it reaches 99.1.
+* For a target of 500 LPS, it reaches 476.
