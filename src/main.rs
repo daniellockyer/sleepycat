@@ -1,8 +1,8 @@
 #[macro_use]
 extern crate clap;
 
-use std::thread;
 use std::io::{self, BufRead, Write};
+use std::thread;
 use std::time::{Duration, SystemTime};
 
 use clap::{App, Arg};
